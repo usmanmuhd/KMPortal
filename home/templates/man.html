@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div style="margin-top:60px">
+        <div class="card-deck">
+    {% for product in prod %}
+
+    <div class="card">
+        <img class="card-img-top" style="width:100%" src="/media/{{ product.picture }}" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">{{ product.name }}</h5>
+            {% for req, val in product.requirements.items %}
+            <p class="card-text">{{ req }} - {{ val }}</p>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}
